@@ -5,6 +5,7 @@ package org.jor.productinventory.business;
  */
 public class Product {
 
+
     private String code;
     private String description;
     private double price;
@@ -15,6 +16,7 @@ public class Product {
      * @param description
      * @param price
      */
+
     public Product(String code, String description, double price) {
         this.code = code;
         this.description = description;
@@ -79,7 +81,7 @@ public class Product {
     /** {@inheritDoc} */
     @Override
     public String toString(){
-        return "" + "Code :\t\t\t\t\t" + this.code + "\n"
+        return "\n" + "Code :\t\t\t\t\t" + this.code + "\n"
                   + "Description :\t\t\t" + this.description + "\n"
                   + "Price : \t\t\t\t" + this.price + "\n";
     }

@@ -36,7 +36,7 @@ public class MainApp {
         System.out.print("Please enter menu item :");
         menuItem = in.nextLine();
 
-        logger.info("Entered menu selection : " + menuItem);
+        logger.info("\nEntered menu selection : " + menuItem);
 
         while(!menuItem.equalsIgnoreCase("exit")){
             menuItem = menuItem.toLowerCase();
@@ -56,9 +56,9 @@ public class MainApp {
                         actionableList.addProduct(p);
                     }
                     catch (Exception e){
-                        System.out.println("Product already exists : " + productCode);
+                        System.out.println("\nProduct already exists : " + productCode);
                     }
-                    logger.info("Added product : " + p.toString() + "to list");
+                    logger.info("\nAdded product : " + p.toString() + "to list");
                     break;
 
                 case "delete product":
@@ -67,16 +67,17 @@ public class MainApp {
                     try{
                         actionableList.deleteProduct(productCode);
                     }catch (Exception e){
-                        System.out.println("No such product exits : " + productCode);
+                        System.out.println("\nNo such product exits : " + productCode);
                     }
-                    logger.info("Deleted product : " + productCode + "from list");
+                    logger.info("\nDeleted product : " + productCode + "from list");
                     break;
 
                 case "list products":
-                    for(Product product : actionableList.listProducts()) {
+                    for(Product product : actionableList.getProducts()) {
                         System.out.println(product.toString());
+                        logger.info("\nListing product : " + product.toString());
                     }
-                    logger.info("listed product's : ");
+
                     break;
             }
             printMenuOptions();

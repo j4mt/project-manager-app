@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
         return this.products.size();
     }
 
-    public Collection<Product> listProducts(){
+    public Collection<Product> getProducts(){
         return products.values();
     }
 

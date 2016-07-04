@@ -16,7 +16,7 @@ public interface ProductService {
      * @return the boolean
      */
 
-    public void addProduct(Product product) throws ProductServiceException;
+    void addProduct(Product product) throws ProductServiceException;
 
     /**
      * Delete product boolean.
@@ -24,18 +24,18 @@ public interface ProductService {
      * @param code the code
      * @return the boolean
      */
-    public boolean deleteProduct(String code);
+    boolean deleteProduct(String code);
 
 
     /**
      * List products.
      */
-    public Collection<Product>listProducts();
+    Collection<Product> getProducts();
 
     /**
      * Gets size.
      *
      * @return the size
      */
-    public int getProductsSize();
+    int getProductsSize();
 }
