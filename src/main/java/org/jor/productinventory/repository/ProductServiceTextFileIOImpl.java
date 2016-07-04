@@ -22,7 +22,7 @@ public class ProductServiceTextFileIOImpl implements ProductDAO {
 
     static Logger log = org.apache.log4j.Logger.getLogger(Logger.class.getName());
 
-    private Map<String, Product> products = null;
+    private Map<String, Product> products;
     private Path productsPath = null;
     private File productsFile = null;
     private String FIELD_SEP = "\t";
@@ -43,8 +43,8 @@ public class ProductServiceTextFileIOImpl implements ProductDAO {
     public Collection<Product> getProducts() {
 
          //Already read products
-        if (products != null)
-            return (Collection<Product>) products;
+        if (products.isEmpty())
+            return products.values();
 
         products = new HashMap<>();
 
@@ -78,7 +78,8 @@ public class ProductServiceTextFileIOImpl implements ProductDAO {
                 return null;
             }
         }
-        return (Collection<Product>) products;
+        //return (Collection<Product>) products;
+        return products.values();
     }
 
     @Override
