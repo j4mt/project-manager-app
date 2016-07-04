@@ -1,0 +1,16 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+#.gitignore
+#idea/
+"C:\\log4j-application.log"
+Project Manager App.iml
+pom.xml
+#src/
+*log
