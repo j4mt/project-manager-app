@@ -22,7 +22,7 @@ public class ProductServiceTextFileIOImpl implements ProductDAO {
 
     static Logger log = org.apache.log4j.Logger.getLogger(Logger.class.getName());
 
-    private Map<String, Product> products;
+    private Map<String, Product> products = new HashMap<>();
     private Path productsPath = null;
     private File productsFile = null;
     private String FIELD_SEP = "\t";
@@ -31,7 +31,8 @@ public class ProductServiceTextFileIOImpl implements ProductDAO {
 
         productsPath = Paths.get("products.txt");
         productsFile = productsPath.toFile();
-        this.getProducts();
+        // TODO: init products list here , still having trouble with the collection here
+        getProducts();
     }
 
 

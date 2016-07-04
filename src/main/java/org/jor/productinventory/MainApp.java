@@ -2,6 +2,7 @@ package org.jor.productinventory;
 
 import org.apache.log4j.Logger;
 import org.jor.productinventory.business.Product;
+import org.jor.productinventory.repository.ProductServiceTextFileIOImpl;
 import org.jor.productinventory.service.ProductService;
 import org.jor.productinventory.service.ProductServiceImpl;
 
@@ -16,12 +17,12 @@ public class MainApp {
 
     public static void main(String[]args){
 
-//        ProductServiceTextFileIOImpl productListServiceImpl = new ProductServiceTextFileIOImpl ();
-        ProductServiceImpl productListServiceImpl = new ProductServiceImpl();
+        ProductServiceTextFileIOImpl productListServiceImpl = new ProductServiceTextFileIOImpl ();
+//        ProductServiceImpl productListServiceImpl = new ProductServiceImpl();
         ProductService actionableList = productListServiceImpl;
 
         // init product list
-        initProducts(productListServiceImpl);
+        //initProducts(productListServiceImpl);
         System.out.println("\n\n\t\t\t| *** Welcome to j4mt's product manager application *** |");
 
         // product input vars
@@ -75,10 +76,15 @@ public class MainApp {
 
                 case "list products":
                     logger.info("\nListing products : " );
-                    for(Product product : actionableList.getProducts()) {
-                        System.out.println(product.toString());
+                    if(actionableList.getProductsSize() == 0)
+                    {
+                        System.out.println("No products in list");
                     }
-
+                    else {
+                        for (Product product : actionableList.getProducts()) {
+                            System.out.println(product.toString());
+                        }
+                    }
                     break;
             }
             printMenuOptions();
