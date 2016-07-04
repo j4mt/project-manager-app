@@ -5,6 +5,7 @@
 # IntelliJ project files
 .idea
 *.iml
+*.log
 out
 gen
 #.gitignore
@@ -13,4 +14,4 @@ gen
 Project Manager App.iml
 pom.xml
 #src/
-*log
+
