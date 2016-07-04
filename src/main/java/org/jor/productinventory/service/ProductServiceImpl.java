@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
 
 
         if (products.containsKey(product.getCode()))
-            throw new ProductServiceException("Product already added!");
+            throw new ProductServiceException("\n\nProduct already added!");
 
         products.put(product.getCode(), product);
     }

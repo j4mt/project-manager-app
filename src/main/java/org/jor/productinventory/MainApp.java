@@ -2,8 +2,8 @@ package org.jor.productinventory;
 
 import org.apache.log4j.Logger;
 import org.jor.productinventory.business.Product;
-import org.jor.productinventory.service.ProductServiceImpl;
 import org.jor.productinventory.service.ProductService;
+import org.jor.productinventory.service.ProductServiceImpl;
 
 import java.util.Scanner;
 
@@ -16,6 +16,7 @@ public class MainApp {
 
     public static void main(String[]args){
 
+//        ProductServiceTextFileIOImpl productListServiceImpl = new ProductServiceTextFileIOImpl ();
         ProductServiceImpl productListServiceImpl = new ProductServiceImpl();
         ProductService actionableList = productListServiceImpl;
 
@@ -73,9 +74,9 @@ public class MainApp {
                     break;
 
                 case "list products":
+                    logger.info("\nListing products : " );
                     for(Product product : actionableList.getProducts()) {
                         System.out.println(product.toString());
-                        logger.info("\nListing product : " + product.toString());
                     }
 
                     break;
