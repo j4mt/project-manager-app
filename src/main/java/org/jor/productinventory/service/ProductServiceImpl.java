@@ -2,10 +2,10 @@ package org.jor.productinventory.service;
 
 import org.apache.log4j.Logger;
 import org.jor.productinventory.business.Product;
+import org.jor.productinventory.repository.HashMapRepository;
+import org.jor.productinventory.repository.Repository;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -13,48 +13,69 @@ import java.util.Map;
  */
 public class ProductServiceImpl implements ProductService {
 
+    /**
+     * The Log.
+     */
     static Logger log = Logger.getLogger(Logger.class.getName());
 
-    // Composite collection
-    //private ArrayList<Product> list;
-    private Map<String, Product> products = new HashMap<>();
+    private Repository<Product, String> repository;
 
 
     /**
-     * Add product void.
+     * Instantiates a new Product service.
      *
-     * @param product the product
+     * @param repository the repository
      */
-    public void addProduct(Product product) throws ProductServiceException{
+    public ProductServiceImpl(Repository<Product, String> repository) {
+
+        this.repository = repository;
+    }
+
+    /**
+     * Instantiates a new Product service.
+     */
+    public ProductServiceImpl() {
+
+        repository = new HashMapRepository<>();
+    }
 
 
-        if (products.containsKey(product.getCode()))
+    @Override
+    public Product findProduct(String code) {
+
+        return repository.find(code);
+    }
+
+    public void createProduct(Product product) throws ProductServiceException {
+
+        if (repository.exists(product))
             throw new ProductServiceException("\n\nProduct already added!");
 
-        products.put(product.getCode(), product);
+        repository.create(product);
     }
 
-    /**
-     * Delete product boolean.
-     *
-     * @param code the code
-     * @return the boolean
-     */
+    @Override
+    public void updateProduct(Product product) {
+
+        if (!repository.exists(product))
+            throw new ProductServiceException("\n\nProduct not already added!");
+
+        repository.update(product);
+    }
+
     public boolean deleteProduct(String code){
-        return products.remove(code) != null;
+
+        return repository.delete(code);
     }
 
-    /**
-     * Gets size.
-     *
-     * @return the size
-     */
     public int getProductsSize() {
-        return this.products.size();
+
+        return repository.size();
     }
 
     public Collection<Product> getProducts(){
-        return products.values();
+
+        return repository.findAll();
     }
 
 }

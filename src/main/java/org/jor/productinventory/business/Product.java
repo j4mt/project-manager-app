@@ -3,106 +3,87 @@ package org.jor.productinventory.business;
 /**
  * Created by j4mt on 03/07/2016.
  */
-public class Product {
-
+public class Product extends Entity<String> {
 
     private String code;
     private String description;
     private double price;
 
     /**
-     * Instantiate new product
-     * @param code
-     * @param description
-     * @param price
+     * Instantiates a new Product.
+     *
+     * @param code        the code
+     * @param description the description
+     * @param price       the price
      */
-
     public Product(String code, String description, double price) {
+
+        super(code);
         this.code = code;
         this.description = description;
         this.price = price;
     }
 
-
     /**
-     * Getter for property 'price'.
+     * Gets code.
      *
-     * @return Value for property 'price'.
-     */
-    public double getPrice() {
-        return price;
-    }
-
-    /**
-     * Setter for property 'price'.
-     *
-     * @param price Value to set for property 'price'.
-     */
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    /**
-     * Getter for property 'code'.
-     *
-     * @return Value for property 'code'.
+     * @return the code
      */
     public String getCode() {
         return code;
     }
 
     /**
-     * Setter for property 'code'.
+     * Sets code.
      *
-     * @param code Value to set for property 'code'.
+     * @param code the code
      */
     public void setCode(String code) {
         this.code = code;
     }
 
     /**
-     * Getter for property 'description'.
+     * Gets description.
      *
-     * @return Value for property 'description'.
+     * @return the description
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Setter for property 'description'.
+     * Sets description.
      *
-     * @param description Value to set for property 'description'.
+     * @param description the description
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    /** {@inheritDoc} */
-    @Override
-    public String toString(){
-        return "\n" + "Code :\t\t\t\t\t" + this.code + "\n"
-                  + "Description :\t\t\t" + this.description + "\n"
-                  + "Price : \t\t\t\t" + this.price + "\n";
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
+    public double getPrice() {
+        return price;
     }
 
     /**
-     * Equals boolean.
+     * Sets price.
      *
-     * @param p the p
-     * @return the boolean
+     * @param price the price
      */
-    public boolean equals(Product p)
-    {
-        boolean isEqual = false;
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-        if(this.getCode().equals(p.getCode())
-                && this.getDescription().equals(p.getDescription())
-                && this.getPrice() == p.getPrice())
-        {
-            isEqual = true;
-        }
 
-        return isEqual;
+    @Override
+    public String toString() {
+
+        return "\n" + "Code :\t\t\t\t\t" + this.getIdentifier() + "\n"
+                + "Description :\t\t\t" + this.description + "\n"
+                + "Price : \t\t\t\t" + this.price + "\n";
     }
 }

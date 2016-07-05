@@ -1,8 +1,6 @@
 package org.jor.productinventory.business;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 /**
  * Created by j4mt on 03/07/16.

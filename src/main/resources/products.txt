@@ -1,2 +1,2 @@
-12345678\tBig Brown Shoes\t35.99
-12345679\tLittle Blue Shoes\t15.99
+12345678|Big Brown Shoes|35.99
+12345679|Little Blue Shoes|15.99

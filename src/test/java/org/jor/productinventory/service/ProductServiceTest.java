@@ -1,7 +1,6 @@
-package org.jor.productinventory.business;
+package org.jor.productinventory.service;
 
-import org.jor.productinventory.service.ProductService;
-import org.jor.productinventory.service.ProductServiceImpl;
+import org.jor.productinventory.business.Product;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
@@ -19,8 +18,8 @@ public class ProductServiceTest {
 
         ProductService productService = new ProductServiceImpl();
 
-        productService.addProduct(new Product("12345678", "Glass Hammer", 50.99));
-        productService.addProduct(new Product("12345679", "Steel Hammer", 5.99));
+        productService.createProduct(new Product("12345678", "Glass Hammer", 50.99));
+        productService.createProduct(new Product("12345679", "Steel Hammer", 5.99));
 
         assertEquals(productService.getProductsSize(), 2);
     }
@@ -30,8 +29,8 @@ public class ProductServiceTest {
 
         ProductService productService = new ProductServiceImpl();
 
-        productService.addProduct(new Product("12345678", "Glass Hammer", 50.99));
-        productService.addProduct(new Product("12345679", "Steel Hammer", 5.99));
+        productService.createProduct(new Product("12345678", "Glass Hammer", 50.99));
+        productService.createProduct(new Product("12345679", "Steel Hammer", 5.99));
 
         assertEquals(productService.getProductsSize(), 2);
 
@@ -45,11 +44,11 @@ public class ProductServiceTest {
 
         ProductService productService = new ProductServiceImpl();
 
-        productService.addProduct(new Product("12345678", "Glass Hammer", 50.99));
+        productService.createProduct(new Product("12345678", "Glass Hammer", 50.99));
 
         try {
 
-            productService.addProduct(new Product("12345678", "Glass Hammer", 50.99));
+            productService.createProduct(new Product("12345678", "Glass Hammer", 50.99));
             fail();
 
         } catch (Exception e) {

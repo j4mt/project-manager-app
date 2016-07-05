@@ -10,13 +10,26 @@ import java.util.Collection;
 public interface ProductService {
 
     /**
-     * Add product boolean.
+     * Find product product.
+     *
+     * @param code the code
+     * @return the product
+     */
+    Product findProduct(String code);
+
+    /**
+     * Create product.
      *
      * @param product the product
-     * @return the boolean
      */
+    void createProduct(Product product);
 
-    void addProduct(Product product) throws ProductServiceException;
+    /**
+     * Update product.
+     *
+     * @param product the product
+     */
+    void updateProduct(Product product);
 
     /**
      * Delete product boolean.
@@ -26,16 +39,17 @@ public interface ProductService {
      */
     boolean deleteProduct(String code);
 
-
     /**
-     * List products.
+     * Gets products.
+     *
+     * @return the products
      */
     Collection<Product> getProducts();
 
     /**
-     * Gets size.
+     * Gets products size.
      *
-     * @return the size
+     * @return the products size
      */
     int getProductsSize();
 }

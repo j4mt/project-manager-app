@@ -5,7 +5,13 @@ package org.jor.productinventory.service;
  */
 public class ProductServiceException extends RuntimeException {
 
+    /**
+     * Instantiates a new Product service exception.
+     *
+     * @param message the message
+     */
     public ProductServiceException(String message) {
+
         super(message);
     }
 }
